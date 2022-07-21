@@ -88,25 +88,21 @@ function invert(el) {
         return;
     }
 
-    console.log(el);
-
     const _rgba = eval(getComputedStyle(el).backgroundColor);
     const hsla = RGBToHSL(_rgba);
 
-    if (hsla.s < 10 && hsla.l > 75) {
-        console.log(el, 'white');
+    if (hsla.s < 10 && hsla.l > 75) { // bg is light
         const _textRGBA = eval(getComputedStyle(el).color);
         el.style.backgroundColor = 'rgba(' + (255 - _rgba.r) + ', ' + (255 - _rgba.g) + ', ' + (255 - _rgba.b) + ', ' + (_rgba.a) + ')';
         el.style.color = 'rgba(' + (255 - _textRGBA.r) + ', ' + (255 - _textRGBA.g) + ', ' + (255 - _textRGBA.b) + ', ' + (_textRGBA.a) + ')';
-        el.setAttribute('data-bg-invert', true);
-    } else if (_rgba.r === 0 && _rgba.g === 0 && _rgba.b === 0 && _rgba.a === 0) {
-        // no bg color
+        el.setAttribute('data-bg-invert', 'true');
+    } else if (_rgba.r === 0 && _rgba.g === 0 && _rgba.b === 0 && _rgba.a === 0) { // no bg color
         const _textRGBA = eval(getComputedStyle(el).color);
         const textHSLA = RGBToHSL(_textRGBA);
 
         if (textHSLA.s < 15 && textHSLA.l < 45) { // black
             el.style.color = 'rgba(' + (255 - _textRGBA.r) + ', ' + (255 - _textRGBA.g) + ', ' + (255 - _textRGBA.b) + ', ' + (_textRGBA.a) + ')';
-            el.setAttribute('data-fg-invert', true);
+            el.setAttribute('data-fg-invert', 'true');
         }
     }
 
@@ -114,17 +110,6 @@ function invert(el) {
         invert(e);
     });
 }
-
-/*rcmail.addEventListener('init', function (evt) {
-    // create custom button
-    var button = $('<A>').attr('id', 'rcmSampleButton').html(rcmail.gettext('buttontitle', 'sampleplugin'));
-    button.bind('click', function (e) { return rcmail.command('plugin.samplecmd', this); });
-
-    // add and register
-    rcmail.add_element(button, 'toolbar');
-    rcmail.register_button('plugin.samplecmd', 'rcmSampleButton', 'link');
-    rcmail.register_command('plugin.samplecmd', (a) => console.log(a), true);
-});*/
 
 document.addEventListener('DOMContentLoaded', () => {
     invert(document.querySelector('#messagebody'));

@@ -3,7 +3,7 @@
     "type": "roundcube-plugin",
     "description": "This plugin inverts email HTML background and text colors so it becomes dark.",
     "license": "Apache-2.0",
-    "version": "0.1",
+    "version": "0.1.1",
     "authors": [
         {
             "name": "Dhiego Cassiano Fogaça Barbosa",
