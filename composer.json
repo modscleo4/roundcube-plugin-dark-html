@@ -1,0 +1,28 @@
+{
+    "name": "modscleo4/dark_html",
+    "type": "roundcube-plugin",
+    "description": "This plugin inverts email HTML background and text colors so it becomes dark.",
+    "license": "Apache-2.0",
+    "version": "0.1",
+    "authors": [
+        {
+            "name": "Dhiego Cassiano Fogaça Barbosa",
+            "email": "modscleo4@modscleo4.dev.br",
+            "role": "Lead"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/modscleo4/roundcube-plugin-dark-html"
+        },
+        {
+            "type": "composer",
+            "url": "https://plugins.roundcube.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "roundcube/plugin-installer": ">=0.1.3"
+    }
+}
