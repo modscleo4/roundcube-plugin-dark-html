@@ -100,7 +100,7 @@ function invert(el) {
         const _textRGBA = eval(getComputedStyle(el).color);
         const textHSLA = RGBToHSL(_textRGBA);
 
-        if (textHSLA.s < 15 && textHSLA.l < 45) { // black
+        if (textHSLA.s <= 20 && textHSLA.l < 50) { // black
             el.style.color = 'rgba(' + (255 - _textRGBA.r) + ', ' + (255 - _textRGBA.g) + ', ' + (255 - _textRGBA.b) + ', ' + (_textRGBA.a) + ')';
             el.setAttribute('data-fg-invert', 'true');
         }
